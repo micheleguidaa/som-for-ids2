@@ -23,4 +23,5 @@ python3 -m bash_kernel.install
 aws s3 sync --no-sign-request --region ca-central-1 "s3://cse-cic-ids2018/Processed Traffic Data for ML Algorithms/"  /users/mik2002/aws-dataset
 mv "/users/mik2002/aws-dataset/Thuesday-20-02-2018_TrafficForML_CICFlowMeter.csv" "/users/mik2002/aws-dataset/Thursday-20-02-2018_TrafficForML_CICFlowMeter.csv"
 mkdir ./dataset-processed
+mv ../som-for-ids2 som
 echo "Installazione completata e dati sincronizzati!"
