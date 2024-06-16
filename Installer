@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Aggiorna l'indice dei pacchetti e installa python3, pip3 e awscli
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install -y python3 python3-pip awscli
+
+# Installa pacchetti Python comuni
+pip3 install numpy pandas matplotlib seaborn scikit-learn minisom scikit-metrics jupyter
+
+# Aggiungi il kernel Python al notebook di Jupyter
+python3 -m ipykernel install --user --name=python3
+
+# Opzionale: aggiornamento di pip
+pip3 install --upgrade pip
+
+# Installa kernel Jupyter aggiuntivi
+pip3 install ipykernel
+pip3 install bash_kernel
+python3 -m bash_kernel.install
+
+# Sincronizza i dati dal bucket S3
+aws s3 sync --no-sign-request --region ca-central-1 "s3://cse-cic-ids2018/Processed Traffic Data for ML Algorithms/"  /users/mik2002/aws-dataset
+mv "/users/mik2002/aws-dataset/Thuesday-20-02-2018_TrafficForML_CICFlowMeter.csv" "/users/mik2002/aws-dataset/Thursday-20-02-2018_TrafficForML_CICFlowMeter.csv"
+
+echo "Installazione completata e dati sincronizzati!"
