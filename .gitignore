@@ -1,4 +1,4 @@
-dataset-processed
+dataset-processed*
 
 # Jupyter Notebooks
 *.ipynb_checkpoints
